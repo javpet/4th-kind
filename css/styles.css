@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+:root {
+  --main-color: #FFF;
+  --text-color: #000;
+  --highlight-color: #2727e6;
+}
+
+body.dark-mode {
+  --main-color: #000;
+  --text-color: #FFF;
+  --highlight-color: #FF4141;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 24px;
+  line-height: 40px;
+  background-color: var(--main-color);
+  background-image: url("../images/grid.svg");
+  background-position: center;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+h1 {
+  position: fixed;
+  top: 32px;
+  left: 32px;
+}
+
+h1 rect {
+  fill: var(--highlight-color);
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+a:hover {
+  color: var(--highlight-color);
+}
+
+a.dark-mode-toggle {
+  position: fixed;
+  bottom: 32px;
+  left: 32px;
+}
+
+a.menu-toggle {
+  position: fixed;
+  top: 32px;
+  right: 32px;
+  z-index: 1;
+}
+
+a.menu-toggle rect {
+  fill: currentColor;
+}
+
+a.dark-mode-toggle circle {
+  fill: currentColor;
+}
+
+a.dark-mode-toggle rect {
+  stroke: currentColor;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 600px;
+  height: 100%;
+  background-color: var(--main-color);
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: translateX(100%);
+  transition: transform 500ms 0ms;
+}
+
+nav.fake-mid {
+  transition-delay: 100ms;
+  background-color: var(--highlight-color);
+}
+
+nav.fake-back {
+  transition-delay: 200ms;
+  background-color: var(--text-color);
+}
+
+body.nav-open nav {
+  transform: translateX(0%);
+  transition-delay: 200ms;
+}
+
+body.nav-open nav.fake-mid {
+  transition-delay: 100ms;
+}
+
+body.nav-open nav.fake-back {
+  transition-delay: 0ms;
+}
+
+nav div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+nav div.internal {
+  font-size: 48px;
+  line-height: 64px;
+  flex: 1;
+}
+
+svg {
+  vertical-align: middle;
+}
+
+a.dark-mode-toggle g.toggle circle {
+  transition: transform 500ms;
+}
+
+a.dark-mode-toggle:hover g.toggle circle {
+  transform: scale(1.75)
+}
+
+div.wipe {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background-color: var(--highlight-color);
+  z-index: 2;
+  transition: background-color 0.00001s 2s;
+}
+
+svg.spiral {
+  border: 2px solid var(--highlight-color);
+}
+
+svg.spiral rect {
+  fill: var(--highlight-color);
+  fill-opacity: 0;
+  stroke: var(--highlight-color);
+  transition: fill-opacity 400ms;
+}
+
+svg.spiral rect:hover {
+  fill: var(--highlight-color);
+  fill-opacity: 0.25;
+  stroke: var(--highlight-color);
+}
+
+section {
+  transform: translate(0, 0);
+  transition: transform 400ms;
+}
+
+body.nav-open section {
+  transform: translateX(-100px);
+}
